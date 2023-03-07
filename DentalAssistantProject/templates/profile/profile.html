@@ -1,1 +1,40 @@
-<p>hellow </p>
+{% extends 'profile/main.html' %}
+
+{% block content %}
+<br>
+<a class="btn btn-primary btn-lg" href="{% url 'create_profile' %}">create profile</a>
+
+
+</form>
+
+
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Gender</th>
+        <th scope="col">View</th>
+
+        <th scope="col">Update</th>
+        <th scope="col">Delete</th>
+      </tr>
+    {% for i in profile %}
+    <tr>    
+
+   <td> {{i.name}}</td>
+   <td> {{i.gender}}</td>
+   <td><button type="button" class="btn btn-warning">View</button>
+   </td>
+   <td><a  class="btn btn-info" href="">Update</a>
+   </td>
+   <td><a class="btn btn-danger" href="">Delete</a> 
+   </td>
+
+    </tr>    
+
+    {% endfor %}
+
+  </table>
+  {% endblock content %}
+
