@@ -1,0 +1,16 @@
+{% extends 'profile/main.html' %}
+
+{% block content %}
+<h1>visit page</h1>
+nnnnn
+{% for i in visit %}
+mmmmmm
+<tr>
+
+    <td>{{i.description}}nnn</td>
+    <td>{{i.dateCreated}}nnn</td>
+    {% comment %} <td>{{i.}}</td> {% endcomment %}
+</tr>
+{% endfor %}
+
+{% endblock content %}

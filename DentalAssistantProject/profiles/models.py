@@ -18,7 +18,7 @@ class Visits(models.Model):
     image=models.ImageField(null=True,blank=True,upload_to='photos/%y/%m/%d')
     description=models.TextField(null=True,blank=True)
     dateCreated=models.DateTimeField(default=datetime.now)
-    profileID=models.ForeignKey(Profile , on_delete=models.PROTECT)   
+    profileID=models.ForeignKey(Profile , on_delete=models.CASCADE)   
     
          
     

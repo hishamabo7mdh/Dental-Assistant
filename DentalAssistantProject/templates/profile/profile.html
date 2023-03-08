@@ -14,7 +14,7 @@
       <tr>
         <th scope="col">Name</th>
         <th scope="col">Gender</th>
-        <th scope="col">View</th>
+        <th scope="col">Visits</th>
 
         <th scope="col">Update</th>
         <th scope="col">Delete</th>
@@ -24,11 +24,11 @@
 
    <td> {{i.name}}</td>
    <td> {{i.gender}}</td>
-   <td><button type="button" class="btn btn-warning">View</button>
+   <td><a  class="btn btn-warning" href="{% url 'visit' %}">View Visits</a>
    </td>
-   <td><a  class="btn btn-info" href="">Update</a>
+   <td><a  class="btn btn-info" href="{% url 'update_profile' i.id %}">Update</a>
    </td>
-   <td><a class="btn btn-danger" href="">Delete</a> 
+   <td><a class="btn btn-danger" href="{% url 'delete_profile' i.id %}">Delete</a> 
    </td>
 
     </tr>    

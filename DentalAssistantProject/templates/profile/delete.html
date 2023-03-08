@@ -1,0 +1,10 @@
+{% extends 'profile/main.html' %}
+
+{% block content %}
+<p>Are you sure you want to delete "{{profile}}"?</p>
+<form  action="{% url 'delete_profile' profile.id  %}"method="POST">
+    {% csrf_token %}
+    <a href="{% url 'profile' %}">Cancel</a>
+    <input type="submit" name="Confirm">
+</form>
+{% endblock content %}
