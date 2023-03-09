@@ -6,8 +6,21 @@
 
 
 </form>
+<hr>
 
+<div class="container pb-5">
+  <div class="row">
+    <div class="col-sm">
+    <form class="form-inline my-2 my-lg-0" method="GET">
+     {{search.form}}
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    </div>
+    
+  </div>
+</div>
 
+<hr>
 
 <table class="table">
     <thead>
@@ -19,7 +32,7 @@
         <th scope="col">Update</th>
         <th scope="col">Delete</th>
       </tr>
-    {% for i in profile %}
+    {% for  i in profile %}
     <tr>    
 
    <td> {{i.name}}</td>

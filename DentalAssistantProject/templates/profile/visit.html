@@ -3,28 +3,25 @@
 {% block content %}
 <h1>visit page</h1>
 
-<table class="table">
-    <thead>
-      <tr>
+<div class="container">
+  <table class="table">
+    <thead class="thead-dark">
         <th scope="col">image</th>
         <th scope="col">description</th>
         <th scope="col">date created</th>
       </tr>
-    {% for i in visit %}
-    <tr>    
-
-   <td> {{i.image}}</td>
-   <td> {{i.description}}</td>
-   <td> {{i.dateCreated}}</td>
-
-    </tr>    
-
+    </thead>
+    <tbody>
+      {% for  value in visit %}
+      <tr>    
+        <td> {{value.image}}</td>
+        <td> {{value.description}}</td>
+        <td> {{value.dateCreated}}</td>
+      </tr>    
     {% endfor %}
-
+    </tbody>
   </table>
-
-
-
+</div>
 
 
 {% endblock content %}

@@ -1,31 +1,23 @@
 
-from pyexpat.errors import messages
+from django.contrib import messages
 from django.shortcuts import render,redirect
 from .models import Profile,Visits
 from .forms import *
-#from .filters import ProfileFilter
+from .filters import ProfileFilter
 # Create your views here.
 
-
-
-
 def addProfileToDB(request):
-    # if request.method == 'POST':
-    #     data=Profile(name=request.POST['name'],gender=request.POST['gender'])
-    #     data.save()
-    #     messages.success(request, '')
-    # else:
-    #     messages.error(request,'')
-    
     form=ProfileForm()
     if request.method=='POST':
         form=ProfileForm(request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request, 'successfully')
             return redirect('/profile/')
-    
-        
-    context={'form':form}    
+        else:
+            messages.success(request, 'not successfully')
+
+    context={'form':form  }    
         
         
     return render(request,'profile/profile_form.html',context) 
@@ -70,13 +62,8 @@ def addVisitToDB(request):
 
 #view visits
 def viewVisits(request,pk):
-    print("hisham")
-    print(pk)
     pro=Profile.objects.get(id=pk)
-    print(pro)
     visitAll=Visits.objects.all()
-    print(visitAll)
-    
     visit=visitAll.filter(profileID=pro)
     context={'visit':visit}
     return render(request,'profile/visit.html',context)
@@ -85,8 +72,10 @@ def viewVisits(request,pk):
 def profile(request):
     
     profile=Profile.objects.all()
-    context={'profile':profile}
-    
+    #search------------
+    searchFilter=ProfileFilter(request.GET , queryset=profile)
+    profile=searchFilter.qs 
+    context={'profile':profile , 'search':searchFilter} 
     return render(request,'profile/profile.html',context)
 
 
