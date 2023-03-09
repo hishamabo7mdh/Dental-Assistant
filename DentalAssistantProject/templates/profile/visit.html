@@ -2,15 +2,29 @@
 
 {% block content %}
 <h1>visit page</h1>
-nnnnn
-{% for i in visit %}
-mmmmmm
-<tr>
 
-    <td>{{i.description}}nnn</td>
-    <td>{{i.dateCreated}}nnn</td>
-    {% comment %} <td>{{i.}}</td> {% endcomment %}
-</tr>
-{% endfor %}
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">image</th>
+        <th scope="col">description</th>
+        <th scope="col">date created</th>
+      </tr>
+    {% for i in visit %}
+    <tr>    
+
+   <td> {{i.image}}</td>
+   <td> {{i.description}}</td>
+   <td> {{i.dateCreated}}</td>
+
+    </tr>    
+
+    {% endfor %}
+
+  </table>
+
+
+
+
 
 {% endblock content %}

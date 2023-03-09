@@ -3,7 +3,7 @@ from pyexpat.errors import messages
 from django.shortcuts import render,redirect
 from .models import Profile,Visits
 from .forms import *
-from .filters import ProfileFilter
+#from .filters import ProfileFilter
 # Create your views here.
 
 
@@ -63,16 +63,21 @@ def addVisitToDB(request):
         messages.error(request,'')
         
 #visit
-def visit(request):
-    context={}
-    return render(request,'profile/visit.html',context)
+#def visit(request):
+#    context={}
+#    return render(request,'profile/visit.html',context)
 
 
 #view visits
-def viewVisits(request):
+def viewVisits(request,pk):
+    print("hisham")
+    print(pk)
+    pro=Profile.objects.get(id=pk)
+    print(pro)
+    visitAll=Visits.objects.all()
+    print(visitAll)
     
-    pro=Profile.objects.get(name="ghazi")
-    visit=Visits.objects.get(profileID=pro)
+    visit=visitAll.filter(profileID=pro)
     context={'visit':visit}
     return render(request,'profile/visit.html',context)
     

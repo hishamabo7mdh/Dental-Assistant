@@ -24,7 +24,7 @@
 
    <td> {{i.name}}</td>
    <td> {{i.gender}}</td>
-   <td><a  class="btn btn-warning" href="{% url 'visit' %}">View Visits</a>
+   <td><a  class="btn btn-warning" href="{% url 'viewVisits' i.id %}">View Visits</a>
    </td>
    <td><a  class="btn btn-info" href="{% url 'update_profile' i.id %}">Update</a>
    </td>
