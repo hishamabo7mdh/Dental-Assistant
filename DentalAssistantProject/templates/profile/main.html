@@ -1,11 +1,29 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
-<title>Page Title</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-</head>
+    {% comment %} <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> {% endcomment %}
+<title>DENTAL ASSISTANT</title>
+<meta charset="utf-8">
+    <meta dental ai="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>overview - Brand</title>
+    <link rel="stylesheet" href="{% static '/assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Acme&amp;display=swap">
+    <link rel="stylesheet" href="{% static '/assets/fonts/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/css/theme.bootstrap_4.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+    <link rel="stylesheet" href="{% static '/assets/css/Ludens---1-Index-Table-with-Search--Sort-Filters-v20.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/css/Search-Input-Responsive-with-Icon.css' %}">
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{% static '/plugins/fontawesome-free/css/all.min.css' %}">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{% static '/assets/css/adminlte.min.css' %}"></head>
 <body>
-
+{% comment %} 
 {% include 'profile/navbar.html' %}
 {% if messages %}
     {% for message in messages %}
@@ -13,16 +31,32 @@
         {{ message }}
         </div>
     {% endfor %}
-{% endif %}
+{% endif %} {% endcomment %}
 {% block content %}
 {% endblock content %}
 
 
 
-{% include 'profile/footer.html' %}
+{% comment %} {% include 'profile/footer.html' %} {% endcomment %}
 
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+<script src="{% static '/assets/bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static '/assets/bootstrap/js/search.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/js/jquery.tablesorter.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/js/widgets/widget-filter.min.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/js/widgets/widget-storage.min.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js "></script>
+    <script src="{% static '/assets/js/Ludens---1-Index-Table-with-Search--Sort-Filters-v20-1.js' %}"></script>
+    <script src="{% static '/assets/js/Ludens---1-Index-Table-with-Search--Sort-Filters-v20.js' %}"></script>
+    <script src="{% static '/assets/js/theme.js' %}"></script>
+    <!-- jQuery -->
+    <script src="{% static '/plugins/jquery/jquery.min.js' %}"></script>
+    <!-- Bootstrap 4 -->
+    <script src="{% static '/plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <!-- AdminLTE App -->
+    <script src="{% static '/assets/js/adminlte.min.js' %}"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="{% static '/assets/js/demo.js' %}"></script>
+
+    {% comment %} <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> {% endcomment %}
 </html>

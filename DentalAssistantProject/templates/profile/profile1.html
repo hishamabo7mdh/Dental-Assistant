@@ -1,0 +1,53 @@
+{% extends 'profile/main.html' %}
+
+{% block content %}
+<br>
+<a class="btn btn-primary btn-lg" href="{% url 'create_profile' %}">create profile</a>
+
+
+</form>
+<hr>
+
+<div class="container pb-5">
+  <div class="row">
+    <div class="col-sm">
+    <form class="form-inline my-2 my-lg-0" method="GET">
+     {{search.form}}
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    </div>
+    
+  </div>
+</div>
+
+<hr>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Visits</th>
+
+        <th scope="col">Update</th>
+        <th scope="col">Delete</th>
+      </tr>
+    {% for  i in profile %}
+    <tr>    
+
+   <td> {{i.name}}</td>
+   <td> {{i.gender}}</td>
+   <td><a  class="btn btn-warning" href="{% url 'viewVisits' i.id %}">View Visits</a>
+   </td>
+   <td><a  class="btn btn-info" href="{% url 'update_profile' i.id %}">Update</a>
+   </td>
+   <td><a class="btn btn-danger" href="{% url 'delete_profile' i.id %}">Delete</a> 
+   </td>
+
+    </tr>    
+
+    {% endfor %}
+
+  </table>
+  {% endblock content %}
+

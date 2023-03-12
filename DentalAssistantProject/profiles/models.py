@@ -9,6 +9,8 @@ class Profile(models.Model):
         ('female','female')
     ]
     name=models.CharField(max_length=100)
+    phone_number = models.CharField(max_length=12,null=True,blank=True)
+    age=models.CharField(max_length=100,null=True,blank=True)
     gender=models.CharField(max_length=10,choices= genderChoices)
     
  #   def __str__(self):

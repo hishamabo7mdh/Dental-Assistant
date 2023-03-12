@@ -1,6 +1,280 @@
 {% extends 'profile/main.html' %}
-
+{% load static  %}
 {% block content %}
-<h1>home page</h1>
 
+{% comment %} <body id="page-top"> {% endcomment %}
+    <div id="wrapper">
+        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0 h-auto">
+            <div class="container-fluid d-flex flex-column p-0">
+                <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
+                    <div style="display: flex; flex-direction: column; align-items: center;">
+                        <img src="{% static 'images/AdminLTELogo.png' %}" style="width: 60px; margin-bottom: 5px; padding-top: 20px;">
+                        <div class="sidebar-brand-icon rotate-n-15"></div>
+                        <div class="sidebar-brand-text" style="--bs-body-font-weight: bold;font-family: Nunito, sans-serif;font-style: italic;font-size: 15px; margin-left: 5px; text-align: center;">Dental Assistant</div>
+                    </div>
+                </a>
+                <hr class="sidebar-divider my-0">
+                <ul class="navbar-nav text-light" id="accordionSidebar" style="padding-top:20px ;">
+                    <li class="nav-item"><a class="nav-link active" href="{% url 'home' %}"><i class="fas fa-clinic-medical"></i><span>Overview</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'addProfile' %}"><i class="icon ion-person-add"></i><span>Add Patient</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="#patients"><i class="icon ion-person-stalker"></i><span>Patient</span></a></li>
+                </ul>
+                <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
+            </div>
+        </nav>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
+                    {% comment %} <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle me-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
+                        <form class="d-none d-sm-inline-block me-auto ms-md-3 my-2 my-md-0 mw-100 navbar-search">
+                            <div class="input-group"><input class="bg-light form-control border-0 small" type="text" placeholder="Search for ..."><button class="btn btn-primary py-0" type="button"><i class="fas fa-search"></i></button></div>
+                        </form>
+                    </div> {% endcomment %}
+                    <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                        <i class="fas fa-expand-arrows-alt"></i>
+                    </a>
+                </nav>
+
+                <div class="container-fluid">
+                    <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                        <h3 class="text-dark mb-0">Overview</h3>
+                        <div class="row">
+                            <div class="col-md-8 offset-md-2">
+                                <form action="simple-results.html">
+                                    <div class="input-group">
+                                        <input type="search" class="form-control form-control-lg" placeholder="search...">
+                                        <div class="input-group-append">
+                                            <button type="submit" class="btn btn-lg btn-default">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <section class="content ">
+
+
+                    <div class="card">
+                        <div class="card-header ui-sortable-handle" style="cursor: move;">
+                            <h3 class="card-title">
+                                <i class="ion ion-clipboard mr-1"></i> To Do List
+                            </h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <ul class="todo-list ui-sortable" data-widget="todo-list">
+                                <li>
+                                    <!-- drag handle -->
+                                    <span class="handle ui-sortable-handle">
+                                <i class="fas fa-ellipsis-v"></i>
+                                <i class="fas fa-ellipsis-v"></i>
+                              </span>
+                                    <!-- checkbox -->
+                                    <div class="icheck-primary d-inline ml-2">
+                                        <input type="checkbox" value="" name="todo1" id="todoCheck1">
+                                        <label for="todoCheck1"></label>
+                                    </div>
+                                    <!-- todo text -->
+                                    <span class="text">Design a nice theme</span>
+                                    <!-- Emphasis label -->
+                                    <small class="badge badge-danger"><i class="far fa-clock"></i> 2 mins</small>
+                                    <!-- General tools such as edit or delete-->
+                                    <div class="tools">
+                                        <i class="fas fa-edit"></i>
+                                        <i class="fas fa-trash-o"></i>
+                                    </div>
+                                </li>
+                                <li class="done">
+                                    <span class="handle ui-sortable-handle">
+                                <i class="fas fa-ellipsis-v"></i>
+                                <i class="fas fa-ellipsis-v"></i>
+                              </span>
+                                    <div class="icheck-primary d-inline ml-2">
+                                        <input type="checkbox" value="" name="todo2" id="todoCheck2" checked="">
+                                        <label for="todoCheck2"></label>
+                                    </div>
+                                    <span class="text">Make the theme responsive</span>
+                                    <small class="badge badge-info"><i class="far fa-clock"></i> 4 hours</small>
+                                    <div class="tools">
+                                        <i class="fas fa-edit"></i>
+                                        <i class="fas fa-trash-o"></i>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="handle ui-sortable-handle">
+                                <i class="fas fa-ellipsis-v"></i>
+                                <i class="fas fa-ellipsis-v"></i>
+                              </span>
+                                    <div class="icheck-primary d-inline ml-2">
+                                        <input type="checkbox" value="" name="todo3" id="todoCheck3">
+                                        <label for="todoCheck3"></label>
+                                    </div>
+                                    <span class="text">Let theme shine like a star</span>
+                                    <small class="badge badge-warning"><i class="far fa-clock"></i> 1 day</small>
+                                    <div class="tools">
+                                        <i class="fas fa-edit"></i>
+                                        <i class="fas fa-trash-o"></i>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="handle ui-sortable-handle">
+                                <i class="fas fa-ellipsis-v"></i>
+                                <i class="fas fa-ellipsis-v"></i>
+                              </span>
+                                    <div class="icheck-primary d-inline ml-2">
+                                        <input type="checkbox" value="" name="todo4" id="todoCheck4">
+                                        <label for="todoCheck4"></label>
+                                    </div>
+                                    <span class="text">Let theme shine like a star</span>
+                                    <small class="badge badge-success"><i class="far fa-clock"></i> 3 days</small>
+                                    <div class="tools">
+                                        <i class="fas fa-edit"></i>
+                                        <i class="fas fa-trash-o"></i>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="handle ui-sortable-handle">
+                                <i class="fas fa-ellipsis-v"></i>
+                                <i class="fas fa-ellipsis-v"></i>
+                              </span>
+                                    <div class="icheck-primary d-inline ml-2">
+                                        <input type="checkbox" value="" name="todo5" id="todoCheck5">
+                                        <label for="todoCheck5"></label>
+                                    </div>
+                                    <span class="text">Check your messages and notifications</span>
+                                    <small class="badge badge-primary"><i class="far fa-clock"></i> 1 week</small>
+                                    <div class="tools">
+                                        <i class="fas fa-edit"></i>
+                                        <i class="fas fa-trash-o"></i>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="handle ui-sortable-handle">
+                                <i class="fas fa-ellipsis-v"></i>
+                                <i class="fas fa-ellipsis-v"></i>
+                              </span>
+                                    <div class="icheck-primary d-inline ml-2">
+                                        <input type="checkbox" value="" name="todo6" id="todoCheck6">
+                                        <label for="todoCheck6"></label>
+                                    </div>
+                                    <span class="text">Let theme shine like a star</span>
+                                    <small class="badge badge-secondary"><i class="far fa-clock"></i> 1 month</small>
+                                    <div class="tools">
+                                        <i class="fas fa-edit"></i>
+                                        <i class="fas fa-trash-o"></i>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- /.card-body -->
+                        <div class="card-footer clearfix">
+                            <button type="button" class="btn btn-primary float-right"><i class="fas fa-plus"></i> Add item</button>
+                        </div>
+                    </div>
+
+
+
+{% comment %} 
+                </form>
+                <hr>
+                
+                <div class="container pb-5">
+                  <div class="row">
+                    <div class="col-sm">
+                    <form class="form-inline my-2 my-lg-0" method="GET">
+                     {{search.form.name}}
+                      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                    </div>
+                    
+                  </div>
+                </div>
+                
+                <hr> {% endcomment %}
+
+
+
+                {% comment %} <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle me-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
+                    <form class="d-none d-sm-inline-block me-auto ms-md-3 my-2 my-md-0 mw-100 navbar-search" id="searchFiled">
+                        {{search.form.name}}
+                        <button class="btn btn-primary py-0"  type="submit"><i class="fas fa-search"></i></button>
+                    </form>
+                </div> {% endcomment %}
+
+
+
+
+
+                <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle me-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
+                    <form class="d-none d-sm-inline-block me-auto ms-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group"><input class="bg-light form-control border-0 small" type="text" placeholder="Search for ..."><button class="btn btn-primary py-0" type="button"><i class="fas fa-search"></i></button></div>
+                    </form>
+                </div>
+
+                    <!-- Default box -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title" id="patients">Patients</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Patient Number</th>
+                                            <th>Patient Name</th>
+                                            <th>Patient Gender</th>
+                                            <th>Patient Age</th>
+                                            <th>Progress </th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for i in profile %}
+
+                                        <tr>
+                                            <td>{{i.phone_number}}</td>
+                                            <td>{{i.name}}</td>
+                                            <td>{{i.gender}}</td>
+                                            <td>{{i.age}}</td>
+                                            <td>Done</td>
+                                            <td>
+                                                <a class="btn btn-primary btn-sm" href="#"><i class="fas fa-folder"></i> View</a>
+                                                <a class="btn btn-info btn-sm" href="{% url 'update_profile' i.id %}"><i class="fas fa-pencil-alt"></i> Edit</a>
+                                                <a class="btn btn-danger btn-sm" href="{% url 'delete_profile' i.id %}"><i class="fas fa-trash"></i> Delete</a>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <a href="{% url 'addProfile' %}" class="btn btn-primary btn-rounded float-right" style="position: fixed; bottom: 20px; right: 20px;"><i class="fa fa-plus"></i> Add Patient</a>
+
+
+
+                    <!-- /.card -->
+
+                </section>
+
+            </div>
+            <footer class="bg-white sticky-footer ">
+                
+
+                <div class="container my-auto ">
+                    <div class="text-center my-auto copyright "><span>Copyright © Dental Assistant 2023</span></div>
+                </div>
+            </footer>
+
+        </div>
+    </div>
 {% endblock content %}

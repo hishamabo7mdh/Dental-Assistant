@@ -12,10 +12,11 @@ def addProfileToDB(request):
         form=ProfileForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, 'successfully')
-            return redirect('/profile/')
-        else:
-            messages.success(request, 'not successfully')
+            return redirect('/')
+        #     messages.success(request, 'successfully')
+        #     return redirect('')
+        # else:
+        #     messages.success(request, 'not successfully')
 
     context={'form':form  }    
         
@@ -30,7 +31,7 @@ def updateProfile(request,pk):
         form=ProfileForm(request.POST,instance=profile)
         if form.is_valid():
             form.save()
-            return redirect('/profile/')
+            return redirect('/')
     context={'form':form}
     return render(request,'profile/profile_form.html',context)
 
@@ -39,7 +40,7 @@ def deleteProfile(request,pk):
     profile=Profile.objects.get(id=pk)
     if request.method=="POST":
         profile.delete()
-        return redirect('/profile/')
+        return redirect('/')
     context={'profile':profile}
     return render(request,'profile/delete.html',context)
      
@@ -76,7 +77,7 @@ def profile(request):
     searchFilter=ProfileFilter(request.GET , queryset=profile)
     profile=searchFilter.qs 
     context={'profile':profile , 'search':searchFilter} 
-    return render(request,'profile/profile.html',context)
+    return render(request,'profile/home.html',context)
 
 
 
@@ -84,4 +85,15 @@ def profile(request):
 def home(request):
     return render(request,'profile/home.html')
 
+
+
+
+def addProfile(request):
+    form=ProfileForm()
+    if request.method=='POST':
+        form=ProfileForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    return render(request,'profile/addProfile.html')
 
