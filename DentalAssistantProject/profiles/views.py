@@ -82,12 +82,15 @@ def viewVisits(request,pk):
         
 def profile(request):
     
+    if(request.GET.get('searchh')!=None):
+        profile=Profile.objects.filter(name=request.GET.get('searchh'))
+        #search------------
+        context={'profile':profile } 
+        return render(request,'profile/home.html',context)       
     profile=Profile.objects.all()
-    #search------------
-    searchFilter=ProfileFilter(request.GET , queryset=profile)
-    profile=searchFilter.qs 
-    context={'profile':profile , 'search':searchFilter} 
+    context={'profile':profile } 
     return render(request,'profile/home.html',context)
+
 
 
 
