@@ -7,21 +7,31 @@ from .filters import ProfileFilter
 # Create your views here.
 
 def addProfileToDB(request):
-    form=ProfileForm()
     if request.method=='POST':
-        form=ProfileForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('/')
-        #     messages.success(request, 'successfully')
-        #     return redirect('')
-        # else:
-        #     messages.success(request, 'not successfully')
+        name=request.POST['name']
+        phone=request.POST['phone']
+        age=request.POST['age']
+        gender=request.POST['gender']
+        new_profile=Profile(name=name,phone_number=phone,age=age,gender=gender)
+        new_profile.save()
+        return redirect('/')
+        
+    return render(request,'profile/profile.html')
+    # form=ProfileForm()
+    # if request.method=='POST':
+    #     form=ProfileForm(request.POST)
+    #     if form.is_valid():
+    #         form.save()
+    #         return redirect('/')
+    #     #     messages.success(request, 'successfully')
+    #     #     return redirect('')
+    #     # else:
+    #     #     messages.success(request, 'not successfully')
 
-    context={'form':form  }    
+    # context={'form':form  }    
         
         
-    return render(request,'profile/profile_form.html',context) 
+    # return render(request,'profile/profile_form.html',context) 
 
 #update profile
 def updateProfile(request,pk):
@@ -86,14 +96,8 @@ def home(request):
     return render(request,'profile/home.html')
 
 
+def ppp(request):
+    return render(request,'profile/profile.html')
 
 
-def addProfile(request):
-    form=ProfileForm()
-    if request.method=='POST':
-        form=ProfileForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('/')
-    return render(request,'profile/addProfile.html')
 

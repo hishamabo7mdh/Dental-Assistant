@@ -16,7 +16,7 @@
                 <hr class="sidebar-divider my-0">
                 <ul class="navbar-nav text-light" id="accordionSidebar" style="padding-top:20px ;">
                     <li class="nav-item"><a class="nav-link active" href="{% url 'home' %}"><i class="fas fa-clinic-medical"></i><span>Overview</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'addProfile' %}"><i class="icon ion-person-add"></i><span>Add Patient</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'create_profile' %}"><i class="icon ion-person-add"></i><span>Add Patient</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="#patients"><i class="icon ion-person-stalker"></i><span>Patient</span></a></li>
                 </ul>
                 <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
@@ -209,7 +209,7 @@
 
 
                 <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle me-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
-                    <form class="d-none d-sm-inline-block me-auto ms-md-3 my-2 my-md-0 mw-100 navbar-search">
+                    <form class="d-none d-sm-inline-block me-auto ms-md-3 my-2 my-md-0 mw-100 navbar-search" id="searchFiled">
                         <div class="input-group"><input class="bg-light form-control border-0 small" type="text" placeholder="Search for ..."><button class="btn btn-primary py-0" type="button"><i class="fas fa-search"></i></button></div>
                     </form>
                 </div>
@@ -258,7 +258,7 @@
 
                     </div>
 
-                    <a href="{% url 'addProfile' %}" class="btn btn-primary btn-rounded float-right" style="position: fixed; bottom: 20px; right: 20px;"><i class="fa fa-plus"></i> Add Patient</a>
+                    <a href="{% url 'create_profile' %}" class="btn btn-primary btn-rounded float-right" style="position: fixed; bottom: 20px; right: 20px;"><i class="fa fa-plus"></i> Add Patient</a>
 
 
 

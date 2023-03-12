@@ -13,8 +13,8 @@ class Profile(models.Model):
     age=models.CharField(max_length=100,null=True,blank=True)
     gender=models.CharField(max_length=10,choices= genderChoices)
     
- #   def __str__(self):
-#        return self.name
+    def __str__(self):
+        return self.name
 
 class Visits(models.Model):
     image=models.ImageField(null=True,blank=True,upload_to='photos/%y/%m/%d')

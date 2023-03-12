@@ -106,18 +106,19 @@
                                         <p class="text-primary m-0 fw-bold ">Genaral Information</p>
                                     </div>
                                     <div class="card-body ">
-                                        <form>
+                                        <form method="POST">
+                                            {% csrf_token %}
                                             <div class="row ">
                                                 <div class="col ">
                                                     <div class="mb-3 ">
                                                         <label class="form-label " for="patient-name "><strong>Name</strong></label>
-                                                        <input class="form-control " type="text " id="patient-name " placeholder="Patient name " name="patient-name ">
+                                                        <input class="form-control " type="text " id="patient-name " placeholder="Patient name " name="name">
                                                     </div>
                                                 </div>
                                                 <div class="col ">
                                                     <div class="mb-3 ">
                                                         <label class="form-label " for="phone-number "><strong>Phone</strong></label>
-                                                        <input class="form-control " type="number " id="phone-number " placeholder="Phone number " name="phone-number ">
+                                                        <input class="form-control " type="number " id="phone-number " placeholder="Phone number " name="phone">
                                                     </div>
                                                 </div>
                                             </div>
@@ -125,7 +126,7 @@
                                                 <div class="col ">
                                                     <div class="mb-3 ">
                                                         <label class="form-label " for="age "><strong>Age</strong></label>
-                                                        <input class="form-control " type="number " id="age " placeholder="Age " name="age ">
+                                                        <input class="form-control " type="number " id="age " placeholder="Age " name="age">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label class="form-label" for="progress"><strong>Progress</strong></label>
@@ -151,7 +152,7 @@
                                                 </div>
                                             </div>
                                             <div class="mb-3 ">
-                                                <button class="btn btn-primary btn-sm " type="submit ">Save Profile</button>
+                                                <button class="btn btn-primary btn-sm " type="submit">Save Profile</button>
                                             </div>
                                         </form>
                                     </div>
